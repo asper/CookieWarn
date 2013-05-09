@@ -1,0 +1,4 @@
+CookieWarn
+==========
+
+Mootools cookie warning
