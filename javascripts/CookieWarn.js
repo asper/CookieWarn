@@ -34,24 +34,14 @@ var CookieWarn = new Class({
             o = t.options,
             replacements = {
                 message: o.message,
-                ok: new Element('a', {
-                    href: '#',
-                    'class': o.okClass,
-                    html: o.ok
-                }).toString(),
-                more: new Element('a', {
-                    href: o.link,
-                    'class': o.moreClass,
-                    target: o.moreTarget,
-                    html: o.more
-                }).toString()
+                ok: '<a href="#" class="'+o.okClass+'">'+o.ok+'</a>',
+                more: '<a href="'+o.link+'" class="'+o.moreClass+'" target="'+o.moreTarget+'">'+o.more+'</a>',
             },
             el = new Element('div', {
                 id: o.id,
                 'class': o.class,
                 html: o.html.substitute(replacements)
             }),
-            test = console.log(el),
             okLink = el.getElement('.'+o.okClass);
         okLink.addEvent('click', function(e) {
             if (e) {
