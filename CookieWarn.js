@@ -1,3 +1,7 @@
+/**
+ * CookieWarn Class
+ * 
+ **/
 var CookieWarn = new Class({
     Implements: Options,
     options: {
@@ -6,7 +10,7 @@ var CookieWarn = new Class({
         'class': null,
         container: null,
         auto: true,
-        html: '{message}: {ok} | {more}'
+        html: '{message}: {ok} | {more}',
         message: 'This site uses cookies to enable persistent features between page changes and to gather anonymous statistics about our web site frequentation.',
         ok: 'Thanks for Telling Me',
         okClass: 'cookieWarnOk',
@@ -47,12 +51,13 @@ var CookieWarn = new Class({
                 'class': o.class,
                 html: o.html.substitute(replacements)
             }),
-            okLink = el.getElement('.cookieWarnOk').addEvent('click', function(e){
-                if(e){
-                    e.preventDefault();
-                }
-                t.accepted(true);
-            });
+            okLink = el.getElement('.cookieWarnOk');
+        okLink.addEvent('click', function(e){
+            if(e){
+                e.preventDefault();
+            }
+            t.accepted(true);
+        });
         el.inject(document.id(o.container));
     },
     accepted: function(value){
