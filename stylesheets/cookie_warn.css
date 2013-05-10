@@ -14,4 +14,11 @@ changes and to gather anonymous statistics about our web site frequentation:
   background: #000;
   background: rgba(0, 0, 0, 0.85);
   color: #fff;
+  width: 380px;
+  padding: 20px;
+  text-shadow: none;
+  font-size: 0.8em;
+  text-align: justify;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
