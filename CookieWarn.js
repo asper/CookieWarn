@@ -1,7 +1,6 @@
 /**
- * CookieWarn Class
- * 
- **/
+* CookieWarn Class
+*/
 var CookieWarn = new Class({
     Implements: Options,
     options: {
@@ -19,48 +18,39 @@ var CookieWarn = new Class({
         moreTarget: '_blank',
         link: 'http://cookie-warn.asper.fr'
     },
-    initialize: function(options){
+    initialize: function(options) {
         this.options.container = document.id(document.body);
         this.setOptions(options);
-        if(this.options.auto){
+        if (this.options.auto) {
             this.show();
         }
     },
-    show: function(){
-        if(this.accepted()){
+    show: function() {
+        if (this.accepted()) {
             return true;
         }
         var t = this,
             o = t.options,
             replacements = {
                 message: o.message,
-                ok: new Element('a', {
-                    href: '#',
-                    'class': o.okClass,
-                    html: o.ok
-                }),
-                more: new Element('a', {
-                    href: o.link,
-                    'class': o.moreClass,
-                    target: o.moreTarget,
-                    html: o.more
-                })
+                ok: '<a href="#" class="'+o.okClass+'">'+o.ok+'</a>',
+                more: '<a href="'+o.link+'" class="'+o.moreClass+'" target="'+o.moreTarget+'">'+o.more+'</a>',
             },
             el = new Element('div', {
                 id: o.id,
                 'class': o.class,
                 html: o.html.substitute(replacements)
             }),
-            okLink = el.getElement('.cookieWarnOk');
-        okLink.addEvent('click', function(e){
-            if(e){
+            okLink = el.getElement('.'+o.okClass);
+        okLink.addEvent('click', function(e) {
+            if (e) {
                 e.preventDefault();
             }
             t.accepted(true);
         });
         el.inject(document.id(o.container));
     },
-    accepted: function(value){
+    accepted: function(value) {
         return (value !== undefined) ? Cookie.write(this.options.cookieName, value) : Cookie.read(this.options.cookieName);
     }
 });
