@@ -51,6 +51,7 @@ var CookieWarn = new Class({
                 'class': o.class,
                 html: o.html.substitute(replacements)
             }),
+            test = console.log(el),
             okLink = el.getElement('.'+o.okClass);
         okLink.addEvent('click', function(e) {
             if (e) {
