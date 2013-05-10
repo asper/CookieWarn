@@ -1,0 +1,17 @@
+/*
+<div id="CookieWarn" class="">
+This site uses cookies to enable persistent features between page
+changes and to gather anonymous statistics about our web site frequentation: 
+<a href="#" class="cookieWarnOk">Thanks for Telling Me</a> 
+| <a href="http://cookie-warn.asper.fr" class="cookieWarnMore" target="_blank">Why this message?</a>
+</div>
+*/
+
+#CookieWarn {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  background: #000;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+}
