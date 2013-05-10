@@ -1,4 +1,4 @@
-var CookieWarn = new Class(
+var CookieWarn = new Class({
     Implements: Options,
     options: {
         cookieName: 'CookieWarn',
@@ -58,4 +58,4 @@ var CookieWarn = new Class(
     accepted: function(value){
         return (value !== undefined) ? Cookie.write(this.options.cookieName, value) : Cookie.read(this.options.cookieName);
     }
-);
+});
