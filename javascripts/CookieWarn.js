@@ -38,20 +38,20 @@ var CookieWarn = new Class({
                     href: '#',
                     'class': o.okClass,
                     html: o.ok
-                }),
+                }).toString(),
                 more: new Element('a', {
                     href: o.link,
                     'class': o.moreClass,
                     target: o.moreTarget,
                     html: o.more
-                })
+                }).toString()
             },
             el = new Element('div', {
                 id: o.id,
                 'class': o.class,
                 html: o.html.substitute(replacements)
             }),
-            okLink = el.getElement('.cookieWarnOk');
+            okLink = el.getElement('.'+o.okClass);
         okLink.addEvent('click', function(e) {
             if (e) {
                 e.preventDefault();
